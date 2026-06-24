@@ -37,8 +37,21 @@ function runGame(gameType) {
     }
 }
 
+/**
+ * Checks the answer against the first element in the returned
+ * array from calculateCorrectAnswer array
+ */
 function checkAnswer() {
 
+    let userAnswer = parseInt(document.getElementById("answer-box").value);
+    let calculatedAnswer = calculateCorrectAnswer();
+    let isCorrect = userAnswer === calculatedAnswer[0];
+
+    if (isCorrect) {
+        alert("Hey! You got it right! :D");
+    } else {
+        alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
+    }
 }
 
 /**
@@ -57,6 +70,8 @@ function calculateCorrectAnswer() {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
     }
+ 
+    runGame(calculatedAnswer[1]);
 
 }
 
