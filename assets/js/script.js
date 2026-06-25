@@ -30,8 +30,8 @@ document.addEventListener("DOMContentLoaded", function() {
  */
 function runGame(gameType) {
 
-    document.getElementById("answer-box").value = "";   // Clears the answer box each time a new question is asked
-    document.getElementById("answer-box").focus();      // Puts the cursor in the answer box each time a new question is asked
+    document.getElementById("answer-box").value = "";   /** Clears the answer box each time a new question is asked */
+    document.getElementById("answer-box").focus();      /** Puts the cursor in the answer box each time a new question is asked */
 
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
@@ -131,12 +131,15 @@ function displaySubtractQuestion(operand1, operand2) {
 function displayMultiplyQuestion(operand1, operand2) {
     document.getElementById('operand1').textContent = operand1;
     document.getElementById('operand2').textContent = operand2;
-    document.getElementById('operator').textContent = "x";        // X better than '*' as most know x is times not an asterisk
+    document.getElementById('operator').textContent = "x";        /** X better than '*' as most know x is times not an asterisk */
 }
 
 function displayDivisionQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;
-    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;
-    document.getElementById('operator').textContent = "÷";       // ÷ better than '/' as most know ÷ is division not a forward slash     
+
+    let dividend = operand1 * operand2; /** Because division and multiplication are inverse operations — they undo each other. */
+
+    document.getElementById('operand1').textContent = dividend;
+    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operator').textContent = "÷";      /** ÷ better than '/' as most know ÷ is division not a forward slash   */   
 
 }
