@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function() {
         if (event.key === "Enter") {
             checkAnswer();
         }
-    
+    });
     runGame("addition");
 
 });
@@ -46,7 +46,7 @@ function runGame(gameType) {
     } else if (gameType === "division") {
         displayDivisionQuestion(num1, num2);
     } else {
-        alert(`Unknown game type: ${gameType}`)
+        alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
     }
 }
@@ -106,7 +106,7 @@ function incrementScore() {
 }
 
 /**
- * Gets the tally of incorrect answers from the DOM and increments it by 1
+ * Gets the current tally of incorrect answers from the DOM and increments it by 1
  */
 function incrementWrongAnswer() {
 
@@ -138,4 +138,5 @@ function displayDivisionQuestion(operand1, operand2) {
     document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;
     document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;
     document.getElementById('operator').textContent = "÷";       // ÷ better than '/' as most know ÷ is division not a forward slash     
+
 }
