@@ -31,13 +31,15 @@ function runGame(gameType) {
 
     if (gameType === "addition") {
         displayAdditionQuestion(num1, num2);
+    } else if (gameType === "multiply") {
+        displayMultiplyQuestion(num1, num2);
     } else {
-        alert(`unknown game type: ${gameType}`)
-        throw `unknown game type: ${gameType}. Aborting!`;
+        alert(`Unknown game type: ${gameType}`)
+        throw `Unknown game type: ${gameType}. Aborting!`;
     }
 }
 
-/**
+/**∏
  * Checks the answer against the first element in the returned
  * array from calculateCorrectAnswer array
  */
@@ -54,6 +56,8 @@ function checkAnswer() {
         alert(`Awwww.... you answered ${userAnswer}. The correct answer was ${calculatedAnswer[0]}!`);
         incrementWrongAnswer();
     }
+
+     runGame(calculatedAnswer[1]);
 }
 
 /**
@@ -68,13 +72,12 @@ function calculateCorrectAnswer() {
 
     if (operator === "+") {
         return [operand1 + operand2, "addition"];
+    } else if (operator === "x") {
+        return [operand1 * operand2, "multiply"];    
     } else {
         alert(`Unimplemented operator ${operator}`);
         throw `Unimplemented operator ${operator}. Aborting!`;
     }
- 
-    runGame(calculatedAnswer[1]);
-
 }
 
 /**
@@ -111,6 +114,8 @@ function displayMultiplyQuestion() {
     
 }
 
-function displayDivisionQuestion() {
-    
+function displayDivisionQuestion(operand1, operand2) {
+    document.getElementById('operand1').textContent = operand1;
+    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operator').textContent = "x";        // X better than '*' as most know x is times not an asterisk
 }
